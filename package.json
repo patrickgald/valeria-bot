@@ -2,17 +2,18 @@
   "name": "valeria-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app/app.js",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon index.js",
-    "production": "NODE_ENV=production node index.js"
+    "dev": "NODE_ENV=dev nodemon app/app.js",
+    "production": "NODE_ENV=production node app/app.js"
   },
   "repository": {
     "type": "git",
