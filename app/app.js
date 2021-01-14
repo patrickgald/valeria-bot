@@ -6,7 +6,8 @@ const discord = require('discord.js');
 const cron = require('node-cron');
 const moment = require('moment');
 
-const { getKeyProvider } = require('./services/commands/KeyProvider');
+const { getKeyProvider } = require('./services/commands/keyProvider');
+const { getHoliday } = require('./services/commands/holiday');
 
 const bot = new discord.Client();
 bot.login(process.env.BOT_ID);
@@ -25,6 +26,10 @@ bot.on('message', async msg => {
         case '/keyProvider':
             let outputKeyProvider = await getKeyProvider(commandContent);
             msg.reply(outputKeyProvider);
+            break;
+        case '/holiday':
+            let outputHoliday = await getHoliday();
+            msg.reply(outputHoliday);
             break;
         default:
             msg.reply('comando inválido ❗');
