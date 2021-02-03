@@ -7,6 +7,7 @@ const cron = require('node-cron');
 const moment = require('moment');
 
 const { getKeyProvider } = require('./services/commands/keyProvider');
+const { getHelp } = require('./services/commands/help');
 const { getHoliday } = require('./services/commands/holiday');
 
 const bot = new discord.Client();
@@ -26,6 +27,9 @@ bot.on('message', async msg => {
         case '/keyProvider':
             let outputKeyProvider = await getKeyProvider(commandContent);
             msg.reply(outputKeyProvider);
+            break;
+        case '/help':
+            msg.reply(getHelp());
             break;
         case '/holiday':
             let outputHoliday = await getHoliday();
