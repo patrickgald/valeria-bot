@@ -1,0 +1,27 @@
+{
+  "name": "valeria-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon index.js",
+    "production": "NODE_ENV=production node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickgald/valeria-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickgald/valeria-bot/issues"
+  },
+  "homepage": "https://github.com/patrickgald/valeria-bot#readme"
+}
