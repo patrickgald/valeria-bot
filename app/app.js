@@ -10,6 +10,8 @@ const { getKeyProvider } = require('./services/commands/keyProvider');
 const { getHelp } = require('./services/commands/help');
 const { getHoliday } = require('./services/commands/holiday');
 
+const { selectCountAllRequestsCustomerToday } = require('./services/cron/countAllRequestsCustomer');
+
 const bot = new discord.Client();
 bot.login(process.env.BOT_ID);
 
@@ -43,11 +45,7 @@ bot.on('message', async msg => {
 
 //minute hour day/month month day/week
 
-cron.schedule('* * * * sun', async () => {
-    let dateSend = moment().format('DD/MM/YYYY HH:mm:ss');
-    let outputBot = `⏰  ${dateSend}  ⏰`;
-
-    bot.channels.cache.get(process.env.GENERAL_CHANNEL).send(outputBot);
-    
-    console.log(`Mensagem enviada em ${dateSend}`);
+cron.schedule('0 10,14,18 * * mon,tue,wed,thu,fri', async () => {
+    bot.channels.cache.get(process.env.GENERAL_CHANNEL)
+        .send(await selectCountAllRequestsCustomerToday());
 });

@@ -1,4 +1,4 @@
-const { selectKeyProvider } = require('../../models/selectKeyProvider');
+const { selectKeyProvider } = require('../../models/keyProvider');
 
 
 async function getKeyProvider(nameProvider) {
